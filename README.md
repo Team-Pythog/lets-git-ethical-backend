@@ -1,9 +1,11 @@
 # Lets Git Ethical README
 
-## Authors
-# Sean Hawkins, Amber Falbo, Alex Angelico, Sam Clark 
+# Authors
+## Sean Hawkins, Amber Falbo, Alex Angelico, Sam Clark 
 
-## Project Lets Git Ethical 
+# Project 
+## Lets Git Ethical 
+
 ---
 <!-- ### We are deployed on REACT!
 
