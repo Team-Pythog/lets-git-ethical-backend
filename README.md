@@ -1,5 +1,8 @@
 # Lets Git Ethical README
 
+## Authors
+# Sean Hawkins, Amber Falbo, Alex Angelico, Sam Clark 
+
 ## Project Lets Git Ethical 
 ---
 <!-- ### We are deployed on REACT!
@@ -146,6 +149,3 @@ Unit testing is included in the __________________ project using the pytest test
 1.1: *Added ability for user to change photos on a post* - 12 May 1998
 
 --- -->
-
-## Authors
-# Sean Hawkins, Amber Falbo, Alex Angelico, Sam Clark 
