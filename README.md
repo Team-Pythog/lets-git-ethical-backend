@@ -2,7 +2,7 @@
 ## Sean Hawkins, Amber Falbo, Alex Angelico, Sam Clark 
 
 # Project 
-## Lets Git Ethical 
+## Let's Git Ethical 
 
 ---
 <!-- ### We are deployed on REACT!
