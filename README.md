@@ -1,5 +1,3 @@
-# Lets Git Ethical README
-
 # Authors
 ## Sean Hawkins, Amber Falbo, Alex Angelico, Sam Clark 
 
