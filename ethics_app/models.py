@@ -1,11 +1,29 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 
 class Dilemmas(models.Model):
   title = models.CharField(max_length=64)
-  image = models.ImageField(upload_to='ethics_app/image_assets')
+  image = models.ImageField(upload_to='ethics_app/image_assets', blank=True)
   dilemma = models.TextField()
   # responses = 4x models.CharField(max_length=64, null=True)
 
   def __str__(self):
     return self.title
+
+class UserReg(models.Model):
+  username = models.CharField(max_length=32)
+  password = models.CharField(max_length=32)
+  email = models.EmailField(max_length=128)
+  birth_date = models.DateField(null=True, blank=True)
+
+class ProfileData(models.Model):
+  username = models.CharField(max_length=32)
+  user_thumbnail = models.ImageField(upload_to='ethics_app/image_assets', blank=True)
+  user_header = models.CharField(max_length=64)
+  user_header_image = models.ImageField(upload_to='ethics_app/image_assets', blank=True)
+  bio = models.TextField()
+  gender = models.CharField(max_length=32)
+  instagram = models.URLField(max_length=200, blank=True)
+  facebook = models.URLField(max_length=200, blank=True)
+  linkedin = models.URLField(max_length=200, blank=True)
+
