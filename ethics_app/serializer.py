@@ -11,7 +11,7 @@ class DilemmaSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username',)
+        fields = ('username',) # Don't delete the comma
         
 class UserSerializerWithToken(serializers.ModelSerializer):
     token = serializers.SerializerMethodField()
