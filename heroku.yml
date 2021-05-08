@@ -2,6 +2,6 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: gunicorn lets-git-ethical.wsgi:application --bind 0.0.0.0:$PORT
+  web: gunicorn lets_git_ethical.wsgi:application --bind 0.0.0.0:$PORT
 release:
   image: web
