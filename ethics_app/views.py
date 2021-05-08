@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 from .serializer import DilemmaSerializer, UserSerializer, ProfileInfoSerializer, UserSerializerWithToken
 from .models import Dilemmas, ProfileInfo
 
-#this view will be used every time a user revists the site (e.g. page reload, anything that causes state change)
+#this view will be used each time a user revists the site (e.g. page reload, anything that causes state change)
 @api_view(['GET'])
 def current_user(request):
     serializer = UserSerializer(request.user)
