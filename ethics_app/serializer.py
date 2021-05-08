@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
-from .models import Dilemmas
+from .models import Dilemmas, ProfileInfo
 
 class DilemmaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,7 +11,7 @@ class DilemmaSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username',)
+        fields = ('username')
         
 class UserSerializerWithToken(serializers.ModelSerializer):
     token = serializers.SerializerMethodField()
@@ -35,3 +35,8 @@ class UserSerializerWithToken(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('token', 'username', 'password')
+
+class ProfileInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProfileInfo
+        fields = ('thumbnail', 'header', 'header_image', 'bio', 'gender', 'instagram', 'facebook', 'linkedin')
