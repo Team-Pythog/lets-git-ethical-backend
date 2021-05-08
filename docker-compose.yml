@@ -1,0 +1,20 @@
+version: '3'
+services:
+ web:
+  build: .
+  command: gunicorn lets_git_ethical.wsgi:application --bind 0.0.0.0:8000 --workers 4
+  volumes:
+    - .:/code
+  ports:
+    - 8000:8000
+#  db:
+#   image: postgres:11
+#   restart: always
+#   environment:
+#    - POSTGRES_DB=postgres
+#    - POSTGRES_USER=admin
+#    - POSTGRES_PASSWORD=123
+#   volumes:
+#    - ./postgres-data:/var/lib/postgresql/data
+#   ports:
+#    - 5432:5432
