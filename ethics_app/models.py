@@ -1,11 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# class AnswerField(models.Field):
+#   pass
+
 class Dilemmas(models.Model):
   title = models.CharField(max_length=64)
   image = models.ImageField(upload_to='ethics_app/image_assets', blank=True)
   dilemma = models.TextField()
-  # responses = models.Field
+  # responses = models.TextField(null=False)
   # responses = 4x models.CharField(max_length=64, null=True)
 
   def __str__(self):
@@ -26,4 +29,5 @@ class ProfileInfo(models.Model):
   instagram = models.URLField(max_length=200, blank=True)
   facebook = models.URLField(max_length=200, blank=True)
   linkedin = models.URLField(max_length=200, blank=True)
+
 
