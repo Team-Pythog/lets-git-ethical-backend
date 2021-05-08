@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Dilemmas, UserReg, ProfileData
+from .models import Dilemmas, ProfileInfo
 # Register your models here.
 admin.site.register(Dilemmas)
-admin.site.register(UserReg)
-admin.site.register(ProfileData)
+admin.site.register(ProfileInfo)
