@@ -14,7 +14,7 @@ from pathlib import Path
 import environ
 
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, True)
 )
 
 environ.Env.read_env()
@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ethics_app',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'account'
 ]
 
 REST_FRAMEWORK = {
@@ -161,3 +162,35 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # )
 
 CORS_ALLOW_ALL_ORIGINS = env.bool("ALLOW_ALL_ORIGINS")
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+    },
+    'core.handlers': {
+        'level': 'DEBUG',
+        'handlers': ['console']
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['console'],
+            'propagate': False,
+            'level': 'DEBUG',
+        },
+        'root': {
+            'level': 'DEBUG',
+            'handlers': ['console']
+        },
+    },
+}
