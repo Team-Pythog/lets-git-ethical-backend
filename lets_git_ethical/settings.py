@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import environ, os
+import environ, os, datetime
 
 env = environ.Env(
     DEBUG=(bool, True)
@@ -60,7 +60,9 @@ REST_FRAMEWORK = {
 }
 
 JWT_AUTH = {
-    'JWT_RESPONSE_PAYLOAD_HANDLER': 'lets_git_ethical.utils.my_jwt_response_handler'
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'lets_git_ethical.utils.my_jwt_response_handler',
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(hours=2),
 }
 
 MIDDLEWARE = [
