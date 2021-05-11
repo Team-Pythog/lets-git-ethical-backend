@@ -1,24 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# class AnswerField(models.Field):
-#   pass
-
 class Dilemmas(models.Model):
   title = models.CharField(max_length=64)
-  image = models.ImageField(upload_to='ethics_app/image_assets', blank=True)
+  image = models.ImageField(upload_to='images', blank=True)
   dilemma = models.TextField()
-  # responses = models.TextField(null=False)
-  # responses = 4x models.CharField(max_length=64, null=True)
+  optionA = models.CharField(max_length=64, blank=True, default='')
+  optionB = models.CharField(max_length=64, blank=True, default='')
 
   def __str__(self):
     return self.title
-
-# class UserReg(models.Model):
-#   username = models.CharField(max_length=32)
-#   password = models.CharField(max_length=32)
-#   email = models.EmailField(max_length=128)
-  #  birth_date = models.DateField(null=True, blank=True)
 
 class ProfileInfo(models.Model):
   thumbnail = models.ImageField(upload_to='ethics_app/image_assets', blank=True)
