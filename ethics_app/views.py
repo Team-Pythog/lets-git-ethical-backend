@@ -5,8 +5,8 @@ from rest_framework import generics, permissions, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import DilemmaSerializer, UserSerializer, ProfileInfoSerializer, UserSerializerWithToken
-from .models import Dilemmas, ProfileInfo
+from .serializer import DilemmaSerializer, UserSerializer, UserSerializerWithToken
+from .models import Dilemmas
 
 #this view will be used each time a user revists the site (e.g. page reload, anything that causes state change)
 @api_view(['GET'])
@@ -32,10 +32,10 @@ class DilemmaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Dilemmas.objects.all()
     serializer_class = DilemmaSerializer
 
-class ProfileInfoList(generics.ListAPIView):
-    queryset = ProfileInfo.objects.all()
-    serializer_class = ProfileInfoSerializer
+# class ProfileInfoList(generics.ListAPIView):
+#     queryset = ProfileInfo.objects.all()
+#     serializer_class = ProfileInfoSerializer
 
-class ProfileInfoDelete(generics.RetrieveDestroyAPIView):
-    queryset = ProfileInfo.objects.all()
-    serializer_class = ProfileInfoSerializer
+# class ProfileInfoDelete(generics.RetrieveDestroyAPIView):
+#     queryset = ProfileInfo.objects.all()
+#     serializer_class = ProfileInfoSerializer

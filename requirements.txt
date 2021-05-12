@@ -1,5 +1,7 @@
 asgiref==3.3.4; python_version >= "3.6"
+datetime==4.3
 dj-database-url==0.5.0
+django-autoslug==1.9.8
 django-cors-headers==3.7.0; python_version >= "3.6"
 django-environ==0.4.5
 django==3.2.1; python_version >= "3.6"
@@ -11,3 +13,4 @@ psycopg2-binary==2.8.6; (python_version >= "2.7" and python_full_version < "3.0.
 pyjwt==1.7.1
 pytz==2021.1; python_version >= "3.6"
 sqlparse==0.4.1; python_version >= "3.6"
+zope.interface==5.4.0; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0"
