@@ -8,6 +8,9 @@ from .views import ShowProfilePageView
 urlpatterns = [
       path('api/register', RegisterApi.as_view()),
       path('<int:pk>/profile/', ShowProfilePageView.as_view(), name='show_profile_page'),
+      
+      # path('<str:pk>/profile/', ShowProfilePageView.as_view(), name='show_profile_page')
+
       # path('edit-profile/', user_views.edit_profile, name='my_profile'),
       # path('my-profile', user_views.my_profile, name='my_profile')
 ]
