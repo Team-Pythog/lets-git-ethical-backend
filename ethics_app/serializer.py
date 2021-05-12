@@ -5,7 +5,7 @@ from .models import Dilemmas, ProfileInfo
 
 class DilemmaSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ('title', 'image', 'dilemma', 'optionA', 'optionB')
+        fields = ('title', 'image', 'text', 'response_0', 'response_1')
         model = Dilemmas
 
 class UserSerializer(serializers.ModelSerializer):
@@ -39,4 +39,4 @@ class UserSerializerWithToken(serializers.ModelSerializer):
 class ProfileInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProfileInfo
-        fields = ('thumbnail', 'header', 'header_image', 'bio', 'gender', 'instagram', 'facebook', 'linkedin')
+        fields = ('image', 'header', 'banner', 'bio', 'gender', 'instagram', 'facebook', 'linkedin')
