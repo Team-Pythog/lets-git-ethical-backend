@@ -5,7 +5,7 @@ from .models import Dilemmas
 
 class DilemmaSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ('title', 'image', 'text', 'response_0', 'response_1')
+        fields = ('id', 'title', 'image', 'text', 'response_0', 'response_1')
         model = Dilemmas
 
 class UserSerializer(serializers.ModelSerializer):

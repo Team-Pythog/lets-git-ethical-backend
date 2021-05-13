@@ -6,11 +6,9 @@ from django.conf import settings
 
 class Profile(models.Model):
     # id = models.BigIntegerField(primary_key=True)
-    x = models.OneToOneField(User, on_delete=models.CASCADE)
-    
-    username = models.TextField(default=x, primary_key=True)
-    # print(f'User Object{x}')
-    # user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='username')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.TextField(default=User.get_username(user), primary_key=True)
+    # user = models.OneToOneField(User, default=User.get_username(User), on_delete=models.CASCADE, primary_key=True)
     image = models.ImageField(upload_to='images/profile')
     header = models.CharField(max_length=64)
     slug = AutoSlugField(populate_from='x')
