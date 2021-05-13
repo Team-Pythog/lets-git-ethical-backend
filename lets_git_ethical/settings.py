@@ -61,8 +61,8 @@ REST_FRAMEWORK = {
 
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'lets_git_ethical.utils.my_jwt_response_handler',
-    'JWT_ALLOW_REFRESH': True,
-    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(hours=2),
+    # 'JWT_ALLOW_REFRESH': True,
+    # 'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(hours=2),
 }
 
 MIDDLEWARE = [

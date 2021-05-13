@@ -6,17 +6,18 @@ from django.conf import settings
 
 class Profile(models.Model):
     # id = models.BigIntegerField(primary_key=True)
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)
+    x = models.OneToOneField(User, on_delete=models.CASCADE)
     
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    username = models.TextField(default=x, primary_key=True)
+    # print(f'User Object{x}')
+    # user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='username')
     image = models.ImageField(upload_to='images/profile')
     header = models.CharField(max_length=64)
-    slug = AutoSlugField(populate_from='user')
+    slug = AutoSlugField(populate_from='x')
     bio = models.CharField(max_length=300, blank=True)
 
-
-    def __str__(self):
-        return str(self.user.username)
+    # def __str__(self):
+    #     return str(self.user.username)
     
     def get_absolute_url(self):
         return "/users/{}".format(self.slug)
