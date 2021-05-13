@@ -5,8 +5,10 @@ from rest_framework import generics, permissions, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import DilemmaSerializer, UserSerializer, ProfileInfoSerializer, UserSerializerWithToken
-from .models import Dilemmas, ProfileInfo
+from .serializer import DilemmaSerializer, UserSerializer, UserSerializerWithToken
+from .models import Dilemmas
+import json
+
 
 #this view will be used each time a user revists the site (e.g. page reload, anything that causes state change)
 @api_view(['GET'])
@@ -23,8 +25,13 @@ class UserList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        # return Response('test')
+
 
 class DilemmaList(generics.ListCreateAPIView):
+    # temp_data = json.loads(request.body)
+    # print(temp_data)
+    permission_classes = (permissions.AllowAny,)
     queryset = Dilemmas.objects.all()
     serializer_class = DilemmaSerializer
 
@@ -32,10 +39,10 @@ class DilemmaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Dilemmas.objects.all()
     serializer_class = DilemmaSerializer
 
-class ProfileInfoList(generics.ListAPIView):
-    queryset = ProfileInfo.objects.all()
-    serializer_class = ProfileInfoSerializer
+# class ProfileInfoList(generics.ListAPIView):
+#     queryset = ProfileInfo.objects.all()
+#     serializer_class = ProfileInfoSerializer
 
-class ProfileInfoDelete(generics.RetrieveDestroyAPIView):
-    queryset = ProfileInfo.objects.all()
-    serializer_class = ProfileInfoSerializer
+# class ProfileInfoDelete(generics.RetrieveDestroyAPIView):
+#     queryset = ProfileInfo.objects.all()
+#     serializer_class = ProfileInfoSerializer
