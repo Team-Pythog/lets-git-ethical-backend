@@ -23,3 +23,18 @@ class ShowProfilePageView(DetailView):
         return context
 
 
+class EditProfilePageView(generic.CreateView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+    model = Profile
+
+    def get_data(self, *args, **kwargs):
+        context = super(ShowProfilePageView, self).get_context_data(*args, **kwargs)
+        if self.method == 'POST':
+            form = ProfileUpdateForm(self.POST, instance=self.user)
+            if form.is_valid():
+                form.save()
+        else: 
+            form = ProfileUpdateForm()
+        context['form'] = form
+        return context

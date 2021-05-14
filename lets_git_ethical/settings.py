@@ -45,8 +45,15 @@ INSTALLED_APPS = [
     'ethics_app',
     'rest_framework',
     'corsheaders',
-    'account'
+    'account',
+    'storages'
 ]
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = env.str('AWS_ACCESS_KEY')
+AWS_SECRET_ACCESS_KEY = env.str('AWS_SECRET_KEY')
+AWS_STORAGE_BUCKET_NAME = env.str('AWS_BUCKET_NAME')
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':[
