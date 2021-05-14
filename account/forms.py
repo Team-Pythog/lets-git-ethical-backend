@@ -19,3 +19,18 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['bio', 'image', 'header']
+
+class UserUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ['username',]
+
+class ProfileUpdateForm(forms.ModelForm):
+    bio = forms.CharField(max_length=300, blank=True)
+    image = forms.ImageField(upload_to='images/profile')
+    header = forms.CharField(max_length=64)
+
+    class Meta:
+        model = User
+        fields = ['bio', 'image', 'header']
